@@ -1,0 +1,252 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  cursor: crosshair;
+  background-color: #1a1e1f;
+}
+
+main {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 768px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-family: 'Press Start 2P', cursive;
+  color: #FFBA57;
+  text-shadow: 0.08em 0.08em 0 #FF5857;
+}
+
+.box-border {
+  width: 100%;
+  height: auto;
+  padding: 0.125rem;
+  padding-bottom: 64px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  border-radius: 1rem;
+  background-color: rgb(0, 237, 136);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 237, 136, 1) 0%,
+    rgba(0, 214, 221, 1) 100%
+  );
+  box-shadow: 0 0 128px -72px rgb(0 237 136 / .45);
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  pointer-events: none;
+  background-image: linear-gradient(
+      rgb(0 0 0 / 0.25),
+      rgb(16 16 16 / 0.1)
+    ),
+    linear-gradient(
+      90deg,
+      rgb(255 0 0 / 0.015),
+      rgb(0 255 0 / 0.01),
+      rgb(0 0 255 / 0.015)
+    );
+  background-size: 100% 0.1875rem, 0.375rem 100%;
+  background-repeat: repeat;
+  z-index: 2;
+}
+
+.overlay::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  pointer-events: none;
+  background: rgba(16, 16, 16, 0.2);
+  animation: flicker 0.3s infinite;
+  z-index: 2;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  min-height: 256px;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: black;
+}
+
+.code {
+  line-height: 1.25;
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.95rem;
+  color: #1ff042;
+}
+
+.code-line {
+  position: relative;
+  padding-left: 2ch;
+}
+
+.code-line::before {
+  content: '>';
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cursor-blink {
+  animation: cursor-blink 0.6s infinite both;
+}
+
+.kbd-btn {
+  position: absolute;
+  cursor: crosshair;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0.6em 1.8em 0.9em;
+  border: none;
+  background-color: #FFBA57;
+  font-family: monospace;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #222;
+  box-shadow: 
+    inset 0.1em -0.2em 0 4px #FF5857, 
+    inset -0.1em -0.2em 0 4px #FF5857,
+    inset 0.08em -0.18em 0 5px #aF3837,
+    inset -0.08em -0.18em 0 5px #aF3837,
+    0 0.25em 0 0.15em rgb(0 0 0 / .2);
+  border-radius: 0.8rem;
+  overflow:hidden;
+  transition: all 90ms ease-in-out;
+  z-index: 10;
+}
+    
+.kbd-btn:active {
+  padding: 0.7em 1.8em 0.8em;
+  box-shadow: 
+    inset 0.05em -0.15em 0 4px #FF5857, 
+    inset -0.05em -0.15em 0 4px #FF5857,
+    inset 0.03em -0.13em 0 5px #aF3837,
+    inset -0.03em -0.13em 0 5px #aF3837,
+    0 0.25em 0 0.15em rgb(0 0 0 / .2);
+  outline: none;
+}
+
+.kbd-btn:hover,
+.kbd-btn:focus {
+  filter: brightness(120%);
+  outline: none;
+}
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.15795;
+  }
+  5% {
+    opacity: 0.31511;
+  }
+  10% {
+    opacity: 0.94554;
+  }
+  15% {
+    opacity: 0.2469;
+  }
+  20% {
+    opacity: 0.62031;
+  }
+  25% {
+    opacity: 0.0293;
+  }
+  30% {
+    opacity: 0.00899;
+  }
+  35% {
+    opacity: 0.5344;
+  }
+  40% {
+    opacity: 0.12778;
+  }
+  45% {
+    opacity: 0.52042;
+  }
+  50% {
+    opacity: 0.3823;
+  }
+  55% {
+    opacity: 0.2198;
+  }
+  60% {
+    opacity: 0.9383;
+  }
+  65% {
+    opacity: 0.86615;
+  }
+  70% {
+    opacity: 0.68695;
+  }
+  75% {
+    opacity: 0.55749;
+  }
+  80% {
+    opacity: 0.96984;
+  }
+  85% {
+    opacity: 0.0361;
+  }
+  90% {
+    opacity: 0.24467;
+  }
+  95% {
+    opacity: 0.08351;
+  }
+  100% {
+    opacity: 0.54813;
+  }
+}
