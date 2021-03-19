@@ -38,6 +38,8 @@ module.exports = {
     'no-unused-vars': 0,
     'no-unused-expressions': 0,
     'no-confusing-arrow': 0,
+    'no-shadow': 0,
+    'no-underscore-dangle': 0,
   },
   settings: {
     'import/resolver': {
