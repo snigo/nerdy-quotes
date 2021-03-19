@@ -1,20 +1,49 @@
 module.exports = {
   env: {
-    commonjs: true,
-    es6: true,
-    node: true,
     browser: true,
+    es2021: true,
+    node: true,
   },
   extends: [
-    'airbnb-base',
+    'plugin:react/recommended',
+    'airbnb',
   ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
   },
+  plugins: [
+    'react',
+    '@typescript-eslint',
+  ],
   rules: {
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+    'react/react-in-jsx-scope': 0,
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'react/jsx-props-no-spreading': 0,
+    'react/prop-types': 0,
+    'no-unused-vars': 0,
+    'no-unused-expressions': 0,
+    'no-confusing-arrow': 0,
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
 };
